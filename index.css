@@ -1,2 +1,13 @@
-<?php
+body{
+	margin: 0;
+}
 
+.welcomeSect{
+	height: max(50vw, 400px);
+	width: 100vw;
+	background-image: linear-gradient(
+		0deg,
+		rgb(250, 250, 250) 25%,
+		rgb(195, 250, 248) 75%
+	);
+}
