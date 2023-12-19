@@ -3,11 +3,170 @@ body{
 }
 
 .welcomeSect{
-	height: max(50vw, 400px);
+	height: max(40vw, 400px);
 	width: 100vw;
 	background-image: linear-gradient(
 		0deg,
 		rgb(250, 250, 250) 25%,
 		rgb(195, 250, 248) 75%
 	);
+}
+
+.welcomeCont{
+	width: fit-content;
+	margin: auto;
+	padding: max(12vw, 120px) 0 0 0;
+	text-align: center;
+}
+
+.welcomeTitle{
+	margin: 0;
+	font-size: max(4vw, 40px);
+}
+
+.welcomeSubtitle{
+	margin: max(1.5vw, 15px);
+	font-size: max(2vw, 20px);
+}
+
+.mainSect{
+	width: 100vw;
+	background-color: gainsboro;
+}
+
+.mainTitle{
+	margin: 0;
+	padding: 20px min(10vw, 100px);
+	font-size: max(3vw, 30px);
+}
+
+.mainText{
+	margin: 0;
+	padding: 20px min(10vw, 100px);
+	font-size: max(2vw, 20px);
+}
+
+.roomSect{
+	width: 100vw;
+	background-color: gainsboro;
+}
+
+.roomTitle{
+	margin: 0;
+	padding: 20px min(10vw, 100px);
+	font-size: max(3vw, 30px);
+}
+
+.roomCardCont{
+	width: fit-content;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.roomCard{
+	height: 19.4vw;
+	width: 28vw;
+	margin: 0.6vw;
+	padding: 10px;
+	border-radius: 20px;
+	position: relative;
+	background-color: white;
+}
+
+.roomImg{
+	height: 10.9vw;
+	width: 28vw;
+	border-radius: 10px;
+}
+
+.roomCardTitle{
+	margin: 0vw 0.6vw;
+	font-size: 2.4vw;
+}
+
+.roomCardText{
+	margin: 0vw 0.6vw;
+	font-size: 1.8vw;
+}
+
+.roomCardRent{
+	position: absolute;
+	bottom: 1.2vw;
+	right: 2.4vw;
+	font-size: 1.8vw;
+}
+
+.pokedollar{
+	height: 1.3vw;
+}
+
+@media (max-width: 850px){		/*Two cards wide*/
+	.roomCard{
+		height: 30.6vw;
+		width: 44vw;
+	}
+	
+	.roomImg{
+		height: 17.2vw;
+		width: 44vw;
+	}
+	
+	.roomCardTitle{
+		margin: 0vw 1vw;
+		font-size: 3.8vw;
+	}
+	
+	.roomCardText{
+		margin: 0vw 1vw;
+		font-size: 2.8vw;
+	}
+	
+	.roomCardRent{
+		bottom: 1.9vw;
+		right: 3.8vw;
+		font-size: 2.8vw;
+		right: 2.4vw;
+		font-size: 2.8vw;
+	}
+
+	.pokedollar{
+		height: 2vw;
+	}
+}
+
+@media (max-width: 550px){		/*Two cards wide*/
+	.roomCard{
+		height: 62.6vw;
+		width: 90vw;
+	}
+	
+	.roomImg{
+		height: 35.2vw;
+		width: 90vw;
+	}
+	
+	.roomCardTitle{
+		margin: 0vw 2vw;
+		font-size: 7.8vw;
+	}
+	
+	.roomCardText{
+		margin: 0vw 2vw;
+		font-size: 5.9vw;
+	}
+	
+	.roomCardRent{
+		bottom: 3.9vw;
+		right: 7.8vw;
+		font-size: 5.9vw;
+		right: 7.8vw;
+		font-size: 5.9vw;
+	}
+
+	.pokedollar{
+		height: 4.2vw;
+	}
 }
