@@ -1,0 +1,21 @@
+CREATE TABLE roomsInfo (
+	id INTEGER PRIMARY KEY,
+	name string,
+	desc string,
+	rent int
+);
+
+INSERT INTO roomsInfo (name, desc, rent)
+VALUES
+('room1', 'description of room1', 800),
+('room2', 'description of room2', 2300),
+('room3', 'description of room3', 5000);
+
+CREATE TABLE roomsBooking (
+	id INTEGER PRIMARY KEY,
+	roomId int,
+	customerId int,
+	startDay int,
+	endDay int,
+	FOREIGN KEY(roomId) REFERENCES roomsInfo(id)
+);

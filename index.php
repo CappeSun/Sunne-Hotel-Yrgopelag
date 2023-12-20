@@ -1,6 +1,6 @@
 <?php
 
-
+require '-stuff/dbLoad.php';
 
 ?>
 
@@ -16,7 +16,8 @@
 <body>
 	<div class="welcomeSect">
 		<div class="welcomeCont">
-			<h1 class="welcomeTitle">Welcome to &lthotel&gt</h1>
+			<h2 class="welcomePreTitle">Welcome to</h2>
+			<h1 class="welcomeTitle">Sunne Hotel</h1>
 			<p class="welcomeSubtitle">texttexttextlotsoftextfortesting</p>
 		</div>
 	</div>
@@ -32,24 +33,14 @@
 	<div class="roomSect">
 		<h2 class="roomTitle">Here is our selection of rooms</h2>
 		<div class="roomCardCont">
-			<div class="roomCard">
-				<img src="-stuff/-images/room1.jpg" class="roomImg">
-				<h4 class="roomCardTitle">Room 1</h4>
-				<p class="roomCardText">nice room yes</p>
-				<p class="roomCardRent">800<img class="pokedollar" src="-stuff/-images/pokedollar.svg"></p>
-			</div>
-			<div class="roomCard">
-				<img src="-stuff/-images/room2.jpg" class="roomImg">
-				<h4 class="roomCardTitle">Room 2</h4>
-				<p class="roomCardText">nice room yes</p>
-				<p class="roomCardRent">2300<img class="pokedollar" src="-stuff/-images/pokedollar.svg"></p>
-			</div>
-			<div class="roomCard">
-				<img src="-stuff/-images/room3.jpg" class="roomImg">
-				<h4 class="roomCardTitle">Room 3</h4>
-				<p class="roomCardText">nice room yes</p>
-				<p class="roomCardRent">5000<img class="pokedollar" src="-stuff/-images/pokedollar.svg"></p>
-			</div>
+			<?php for ($i=0; $i < 3; $i++){ ?>
+				<div class="roomCard">
+					<img src="-stuff/-images/room<?= $i+1; ?>.jpg" class="roomImg">
+					<h4 class="roomCardTitle"><?= $fetchData[$i]['name']; ?></h4>
+					<p class="roomCardText"><?= $fetchData[$i]['desc']; ?></p>
+					<p class="roomCardRent"><?= $fetchData[$i]['rent']; ?><img class="pokedollar" src="-stuff/-images/pokedollar.svg"></p>
+				</div>
+			<?php } ?>
 		</div>
 	</div>
 </body>
