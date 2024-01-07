@@ -14,34 +14,41 @@ require '-stuff/dbLoad.php';
 	<link rel="stylesheet" type="text/css" href="https://sputnik.zone/-stuff/-fonts/fonts.css">
 </head>
 <body>
-	<div class="welcomeSect">
-		<div class="welcomeCont">
-			<h2 class="welcomePreTitle">Welcome to</h2>
-			<h1 class="welcomeTitle">Sunne Hotel</h1>
-			<p class="welcomeSubtitle">texttexttextlotsoftextfortesting</p>
+	<div class="homePage page" id="homePage">
+		<div class="welcomeSect">
+			<div class="welcomeCont">
+				<img class="welcomeTitle" src="-stuff/-images/logotext.svg">
+				<p class="welcomeSubtitle">texttexttextlotsoftextfortesting</p>
+			</div>
+		</div>
+		<div class="mainSect">
+			<h2 class="mainTitle">Title of some purpose</h2>
+			<p class="mainText">
+				blablabla
+				<?php for ($i=0; $i < 10; $i++)
+					echo "<br>";
+				?>
+			</p>
+		</div>
+		<div class="roomSect">
+			<h2 class="roomTitle">Here is our selection of rooms</h2>
+			<div class="roomCardCont">
+				<?php for ($i=0; $i < 3; $i++){ ?>
+					<div class="roomCard" id="room<?= $i; ?>">
+						<img class="cardBox" src="-stuff/-images/card.png">
+						<img class="roomImg" src="-stuff/-images/room<?= $i; ?>.png">
+						<h4 class="roomCardTitle"><?= $fetchData[$i]['name']; ?></h4>
+						<p class="roomCardText"><?= $fetchData[$i]['desc']; ?></p>
+						<p class="roomCardRent"><?= $fetchData[$i]['rent']; ?></p>
+						<img class="pokedollar" src="-stuff/-images/pokedollar.svg">
+					</div>
+				<?php } ?>
+			</div>
 		</div>
 	</div>
-	<div class="mainSect">
-		<h2 class="mainTitle">Title of some purpose</h2>
-		<p class="mainText">
-			blablabla
-			<?php for ($i=0; $i < 10; $i++)
-				echo "<br>";
-			?>
-		</p>
+	<div class="roomPage page" id="roomPage">
+		<h1>roomPage</h1>
 	</div>
-	<div class="roomSect">
-		<h2 class="roomTitle">Here is our selection of rooms</h2>
-		<div class="roomCardCont">
-			<?php for ($i=0; $i < 3; $i++){ ?>
-				<div class="roomCard">
-					<img src="-stuff/-images/room<?= $i+1; ?>.jpg" class="roomImg">
-					<h4 class="roomCardTitle"><?= $fetchData[$i]['name']; ?></h4>
-					<p class="roomCardText"><?= $fetchData[$i]['desc']; ?></p>
-					<p class="roomCardRent"><?= $fetchData[$i]['rent']; ?><img class="pokedollar" src="-stuff/-images/pokedollar.svg"></p>
-				</div>
-			<?php } ?>
-		</div>
-	</div>
+	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

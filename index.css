@@ -1,5 +1,26 @@
 body{
 	margin: 0;
+	font-family: "RodinNTLG Pro";
+	font-weight: 200;
+}
+
+.page{
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: scroll;
+	transition: 0.3s;
+}
+
+.homePage{
+	z-index: 0;
+}
+
+.aniHomePage{
+	scale: 1.2;
+	opacity: 0;
 }
 
 .welcomeSect{
@@ -15,28 +36,14 @@ body{
 .welcomeCont{
 	width: fit-content;
 	margin: auto;
-	padding: max(12vw, 120px) 0 0 0;
+	padding: max(10vw, 100px) 0 0 0;
 	text-align: center;
 }
 
-.welcomePreTitle{
-	margin: 0;
-	font-size: max(2.5vw, 25px);
-	font-family: "RodinNTLG Pro";
-	background: linear-gradient(0deg, gray, gainsboro);
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-text-stroke: 0.1vw darkgray;
-}
-
 .welcomeTitle{
-	margin: 0;
-	font-size: max(3.5vw, 35px);
-	font-family: "Sun-Moon";
-	background: linear-gradient(0deg, yellow, orange);
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-text-stroke: 0.2vw white;
+	margin: min(-1vw, -10px);
+	width: max(50vw, 500px);
+	max-width: 90vw;
 }
 
 .welcomeSubtitle{
@@ -73,124 +80,105 @@ body{
 }
 
 .roomCardCont{
-	width: fit-content;
-	margin: auto;
+	margin: 0px 20px;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: center;
+	gap: 2vw;
 }
 
 .roomCard{
-	height: 19.4vw;
-	width: 28vw;
-	margin: 0.6vw;
-	padding: 10px;
-	border-radius: 20px;
+	width: 31.94%;
+	line-height: 0;
 	position: relative;
-	background-color: white;
+	font-size: calc(3.3vw - 0.66px);
+	z-index: 0;
+	transition: 0.1s ease-out;
+}
+
+.roomCard:hover{
+	cursor: pointer;
+	scale: 1.02;
+	transition: 0.15s cubic-bezier(.39,2.38,.75,2.08);
+}
+
+.aniRoomCard{
+	scale: 1.02;
+	transition: 0.15s cubic-bezier(.39,2.38,.75,2.08);
+}
+
+.cardBox{
+	width: 100%;
 }
 
 .roomImg{
-	height: 10.9vw;
-	width: 28vw;
+	width: 96%;
 	border-radius: 10px;
+	position: absolute;
+	top: 2.8%;
+	left: 2.3%;
+	z-index: -1;
 }
 
 .roomCardTitle{
-	margin: 0.6vw 0.6vw;
-	font-size: 2.4vw;
+	width: 45%;
+	margin: 0;
+	font-size: 76%;
+    font-weight: 500;
+	position: absolute;
+	bottom: 31%;
+	left: 5%;
 }
 
 .roomCardText{
-	margin: 0vw 0.6vw;
-	font-size: 1.8vw;
+	width: 90%;
+	margin: 0;
+	font-size: 47%;
+	line-height: 150%;
+	position: absolute;
+	bottom: 3.5%;
+	left: 5%;
 }
 
 .roomCardRent{
+	margin: 0;
 	position: absolute;
-	bottom: 1.2vw;
-	right: 2.4vw;
-	font-size: 1.8vw;
+	top: 8.8%;
+	right: 8.8%;
+	font-size: 62%;
 }
 
 .pokedollar{
-	height: 1.3vw;
-	position: relative;
-	top: 0.06vw;
-	left: 0.06vw;
+	height: 7%;
+	position: absolute;
+	top: 5.2%;
+	right: 4.5%;
 }
 
-@media (max-width: 850px){		/*Two cards wide*/
+@media (max-width: 1000px){
 	.roomCard{
-		height: 30.6vw;
-		width: 44vw;
-	}
-	
-	.roomImg{
-		height: 17.2vw;
-		width: 44vw;
-	}
-	
-	.roomCardTitle{
-		margin: 1vw 1vw;
-		font-size: 3.8vw;
-	}
-	
-	.roomCardText{
-		margin: 0vw 1vw;
-		font-size: 2.8vw;
-	}
-	
-	.roomCardRent{
-		bottom: 1.9vw;
-		right: 3.8vw;
-		font-size: 2.8vw;
-		right: 2.4vw;
-		font-size: 2.8vw;
-	}
-
-	.pokedollar{
-		height: 2vw;
-		top: 0.11vw;
-		left: 0.08vw;
+		width: 48.79%;
+		font-size: calc(5vw - 1px);
 	}
 }
 
-@media (max-width: 550px){		/*Two cards wide*/
+@media (max-width: 600px){
 	.roomCard{
-		height: 62.6vw;
-		width: 90vw;
+		width: 100%;
+		font-size: calc(10vw - 2px);
 	}
-	
-	.roomImg{
-		height: 35.2vw;
-		width: 90vw;
-	}
-	
-	.roomCardTitle{
-		margin: 2vw 2vw;
-		font-size: 7.8vw;
-	}
-	
-	.roomCardText{
-		margin: 0vw 2vw;
-		font-size: 5.9vw;
-	}
-	
-	.roomCardRent{
-		bottom: 3.9vw;
-		right: 7.8vw;
-		font-size: 5.9vw;
-		right: 7.8vw;
-		font-size: 5.9vw;
-	}
+}
 
-	.pokedollar{
-		height: 4.2vw;
-		top: 0.2vw;
-		left: 0.25vw;
-	}
+.roomPage{
+	scale: 0.9;
+	opacity: 0;
+	z-index: -1;
+}
+
+.aniRoomPage{
+	scale: 1;
+	opacity: 1;
 }
 
 @font-face{
@@ -218,7 +206,7 @@ body{
 }
 
 @font-face{
-    font-family: "RodinNTLG Pro";
+    font-family: "Sun-Moon";
     src:
         local("Sun-Moon"),
         url("/-stuff/-fonts/Sun-Moon.ttf");
