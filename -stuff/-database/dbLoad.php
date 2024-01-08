@@ -1,6 +1,6 @@
 <?php
 
-$database = new PDO('sqlite:-stuff/database.db');
+$database = new PDO('sqlite:-stuff/-database/database.db');
 
 $fetchData = $database->query("
 	SELECT *

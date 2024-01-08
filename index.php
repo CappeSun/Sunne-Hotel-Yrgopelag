@@ -1,6 +1,6 @@
 <?php
 
-require '-stuff/dbLoad.php';
+require '-stuff/-database/dbLoad.php';
 
 ?>
 
@@ -15,6 +15,7 @@ require '-stuff/dbLoad.php';
 </head>
 <body>
 	<div class="homePage page" id="homePage">
+		<a class="toArena" href="https://pokemonshowdown.com/">To the Arena...</a>
 		<div class="welcomeSect">
 			<div class="welcomeCont">
 				<img class="welcomeTitle" src="-stuff/-images/logotext.svg">
@@ -47,7 +48,10 @@ require '-stuff/dbLoad.php';
 		</div>
 	</div>
 	<div class="roomPage page" id="roomPage">
-		<h1>roomPage</h1>
+		<div class="backBtn" id="backBtn">Back</div>
+		<h1 class="roomPageTitle" id="roomPageTitle"></h1>
+		<p class="roomPageText" id="roomPageText"></p>
+		<img class="roomPageImg" id="roomPageImg" src="">
 	</div>
 	<script type="text/javascript" src="index.js"></script>
 </body>

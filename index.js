@@ -4,22 +4,26 @@ const roomPage = document.getElementById('roomPage');
 const room0 = document.getElementById('room0');
 const room1 = document.getElementById('room1');
 const room2 = document.getElementById('room2');
+const backBtn = document.getElementById('backBtn');
+
+const roomPageTitle = document.getElementById('roomPageTitle');
+const roomPageText = document.getElementById('roomPageText');
+const roomPageImg = document.getElementById('roomPageImg');
 
 // const roomTitle = document.getElementById('');
 
-let isLoading = false;
+let isRoom = false;
+
+let jsonData;
 
 async function fetchData(){
-	let response = await fetch(`https://sputnik.zone/school/temp/dbLoadJson.php?id=1`)
-	let jsonData = await response.json();
-	return jsonData;
-}
-
-let jsonData = fetchData();
+	let response = await fetch(`https://sputnik.zone/school/temp/akala/dbLoadRoom.php`);
+	jsonData = await response.json();
+} fetchData();
 
 function toRoompage(id){
-	if (isLoading) return;
-	isLoading = true;
+	if (isRoom) return;
+	isRoom = true;
 
 	roomPage.scrollTo({
 		top: 0
@@ -28,17 +32,13 @@ function toRoompage(id){
 	homePage.classList.add('aniHomePage');
 
 	setTimeout(() =>{
-		// roomTitle.textContent = jsonData[id][1];
-		// roomDesc.textContent = jsonData[id][2];
-		// roomImg.src = jsonData[id][3];
+		roomPageTitle.textContent = jsonData[id]['name'];
+		roomPageText.textContent = jsonData[id]['desc'];
+		roomPageImg.src = `-stuff/-images/room${id}.png`;
 
 		homePage.style.visibility = 'hidden';
 
 		roomPage.classList.add('aniRoomPage');
-
-		setTimeout(() =>{
-			toHomepage();
-		},500);
 	},150);
 }
 
@@ -50,7 +50,7 @@ function toHomepage(){
 
 		homePage.classList.remove('aniHomePage');
 
-		isLoading = false;
+		isRoom = false;
 	},150);
 }
 
@@ -68,4 +68,8 @@ room1.addEventListener('click', () =>{
 
 room2.addEventListener('click', () =>{
 	toRoompage(2);
+});
+
+backBtn.addEventListener('click', () =>{
+	toHomepage();
 });
