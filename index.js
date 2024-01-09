@@ -7,7 +7,7 @@ const room2 = document.getElementById('room2');
 const backBtn = document.getElementById('backBtn');
 
 const roomPageTitle = document.getElementById('roomPageTitle');
-const roomPageText = document.getElementById('roomPageText');
+const roomPageDesc = document.getElementById('roomPageDesc');
 const roomPageImg = document.getElementById('roomPageImg');
 
 // const roomTitle = document.getElementById('');
@@ -33,17 +33,17 @@ function toRoompage(id){
 
 	setTimeout(() =>{
 		roomPageTitle.textContent = jsonData[id]['name'];
-		roomPageText.textContent = jsonData[id]['desc'];
+		roomPageDesc.textContent = jsonData[id]['desc'];
 		roomPageImg.src = `-stuff/-images/room${id}.png`;
 
 		homePage.style.visibility = 'hidden';
 
-		roomPage.classList.add('aniRoomPage');
+		roomPage.classList.remove('aniRoomPage');
 	},150);
 }
 
 function toHomepage(){
-	roomPage.classList.remove('aniRoomPage');
+	roomPage.classList.add('aniRoomPage');
 
 	setTimeout(() =>{
 		homePage.style.visibility = '';

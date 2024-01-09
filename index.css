@@ -4,6 +4,15 @@ body{
 	font-weight: 200;
 }
 
+h2{
+	font-size: min(3vw, 36px);
+    font-weight: 500;
+}
+
+p{
+	font-size: min(2vw, 24px);
+}
+
 .page{
 	height: 100vh;
 	width: 100vw;
@@ -13,6 +22,8 @@ body{
 	overflow: scroll;
 	transition: 0.3s;
 }
+
+/* HOME PAGE */
 
 .homePage{
 	z-index: 0;
@@ -43,13 +54,23 @@ body{
 }
 
 .welcomeSect{
-	height: max(40vw, 400px);
+	height: max(50vw, 400px);
+	max-height: 70vw;
 	width: 100vw;
-	background-image: linear-gradient(
-		0deg,
-		rgb(250, 250, 250) 25%,
-		rgb(195, 250, 248) 75%
-	);
+}
+
+.welcomeImgCont{
+	width: 100vw;
+	height: 120vh;
+	position: absolute;
+	top: -10vw;
+	left: 0;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.welcomeImg{
+	width: 100%;
 }
 
 .welcomeCont{
@@ -72,30 +93,27 @@ body{
 
 .mainSect{
 	width: 100vw;
-	background-color: gainsboro;
+	background-color: white;
 }
 
 .mainTitle{
 	margin: 0;
-	padding: 20px min(10vw, 100px);
-	font-size: max(3vw, 28px);
+	padding: 25px min(10vw, 100px);
 }
 
 .mainText{
 	margin: 0;
 	padding: 20px min(10vw, 100px);
-	font-size: max(2vw, 18px);
 }
 
 .roomSect{
 	width: 100vw;
-	background-color: gainsboro;
+	background-color: white;
 }
 
 .roomTitle{
 	margin: 0;
 	padding: 20px min(10vw, 100px);
-	font-size: max(3vw, 28px);
 }
 
 .roomCardCont{
@@ -111,6 +129,8 @@ body{
 .roomCard{
 	width: 31.94%;
 	position: relative;
+	border-radius: 6.5%;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .3);
 	font-size: calc(3.3vw - 0.66px);
 	line-height: 0;
 	z-index: 0;
@@ -176,22 +196,34 @@ body{
 	right: 4.5%;
 }
 
+.footer{
+	height: max(15vw, 150px);
+	background-image: linear-gradient(
+		0deg,
+		rgba(255, 230, 96, 1) 25%,
+		rgba(255, 146, 17, 1) 75%
+	);
+}
+
+/* ROOM PAGE */
+
 .roomPage{
-	background-color: gainsboro;
-	scale: 0.9;
-	opacity: 0;
+	background-color: white;
+	scale: 1;
+	opacity: 1;
 	z-index: -1;
 }
 
 .aniRoomPage{
-	scale: 1;
-	opacity: 1;
+	scale: 0.9;
+	opacity: 0;
 }
 
 .backBtn{
 	padding: max(0.5vw, 6px) max(1.25vw, 15px);
 	border-radius: 0 0 max(1.5vw, 15px) 0;
 	color: black;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .3);
 	font-size: max(1.25vw, 15px);
 	font-weight: 500;
 	text-decoration: none;
@@ -208,12 +240,39 @@ body{
 	transition: 0.2s;
 }
 
+.roomPageCont{
+	margin: 40px min(10vw, 100px);
+	display: flex;
+}
+
+.roomPageText{
+	width: 100%;
+	margin: 0px 20px;
+}
+
 .roomPageTitle{
-	margin: 50px min(10vw, 100px);
-	font-size: max(3vw, 28px);
+	margin: 0;
+}
+
+.roomPageDesc{
+	margin: 0;
+}
+
+.roomPageImg{
+	width: 100%;
+	margin: 0;
 }
 
 @media (max-width: 1000px){
+	h2{
+		font-size: max(3vw, 28px);
+	    font-weight: 500;
+	}
+
+	p{
+		font-size: max(2vw, 18.6px);
+	}
+
 	.roomCard{
 		width: 48.79%;
 		font-size: calc(5vw - 1px);
