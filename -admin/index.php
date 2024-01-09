@@ -10,10 +10,22 @@
 <body>
 	<div class="inputCont">
 		<div class="rentCont">
-			<input type="text" name="room0Rent" id="room0Rent" placeholder="room0Rent">
-			<input type="text" name="room1Rent" id="room1Rent" placeholder="room1Rent">
-			<input type="text" name="room2Rent" id="room2Rent" placeholder="room2Rent">
-			<input type="password" name="key" id="key" placeholder="key">
+			<div>
+				Room1 Rent:
+				<input type="text" name="room0Rent" id="room0Rent">
+			</div>
+			<div>
+				Room2 Rent:
+				<input type="text" name="room1Rent" id="room1Rent">
+			</div>
+			<div>
+				Room3 Rent:
+				<input type="text" name="room2Rent" id="room2Rent">
+			</div>
+			<div>
+				Key: 
+				<input type="password" name="key" id="key" placeholder="key">
+			</div>
 			<button class="updateBtn" id="updateBtn">Update</button>
 			<p class="updateResponse" id="updateResponse">waiting for update</p>
 		</div>
