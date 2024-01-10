@@ -61,7 +61,7 @@ p{
 
 .welcomeImgCont{
 	width: 100vw;
-	height: 120vh;
+	height: 100%;
 	position: absolute;
 	top: -10vw;
 	left: 0;
@@ -198,7 +198,7 @@ p{
 }
 
 .footer{
-	height: max(15vw, 150px);
+	height: max(12vw, 120px);
 	background-image: linear-gradient(
 		0deg,
 		rgba(255, 230, 96, 1) 25%,
@@ -291,10 +291,23 @@ p{
 	min-width: 44px;
 	background-color: white;
 	position: relative;
+	overflow: hidden;
 }
 
 .booked{
-	background-color: gray;
+	background-image: linear-gradient(
+		0deg,
+		#A1A1A1 25%,
+		#BABABA 75%
+	);
+}
+
+.selected{
+	background-image: linear-gradient(
+		0deg,
+		#ffcf33 25%,
+		#FF9211 75%
+	);
 }
 
 .dateSquareNum{

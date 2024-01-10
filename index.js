@@ -53,18 +53,21 @@ function toHomepage(){
 }
 
 room0.addEventListener('click', () =>{
+	unmarkDates();
 	clearDates();
 	loadDates(1);
 	toRoompage(0);
 });
 
 room1.addEventListener('click', () =>{
+	unmarkDates();
 	clearDates();
 	loadDates(2);
 	toRoompage(1);
 });
 
 room2.addEventListener('click', () =>{
+	unmarkDates();
 	clearDates();
 	loadDates(3);
 	toRoompage(2);

@@ -1,3 +1,5 @@
+const clearSelBtn = document.getElementById('clearSelBtn');
+
 let dateSquares = [];
 
 dateSquares[1] = document.getElementById('dateSquare1');
@@ -32,12 +34,21 @@ dateSquares[29] = document.getElementById('dateSquare29');
 dateSquares[30] = document.getElementById('dateSquare30');
 dateSquares[31] = document.getElementById('dateSquare31');
 
+for (let i = 1; i < 32; i++){
+	dateSquares[i].addEventListener('click', () =>{
+		selectDate(i);
+	});
+}
+
+let start = false;
+let end;
+
 async function loadDates(id){
 	let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/fetchBooking.php?id=${id}`);
 	bookingJSON = await response.json();
 
 	bookingJSON.forEach((e) =>{
-		for (let i = e.start; i < e.end+1; i++){
+		for (let i = e.start; i <= e.end; i++){
 			dateSquares[i].classList.add('booked');
 		}
 	});
@@ -47,3 +58,50 @@ function clearDates(){
 	for (let i = 1; i < 32; i++)
 		dateSquares[i].classList.remove('booked');
 }
+
+function selectDate(day){
+	if (dateSquares[day].classList.contains('booked')) return;
+
+	if (!start){
+		start = day;
+		end = day;
+		console.log('first');
+		console.log('start:',start);
+		console.log('end:',end);
+	}else if (day < start){
+		for (let i = day; i < end; i++)
+			if (dateSquares[i].classList.contains('booked')) return;
+		start = day;
+		console.log('second');
+		console.log('start:',start);
+		console.log('end:',end);
+	}else{
+		for (let i = start; i < day; i++)
+			if (dateSquares[i].classList.contains('booked')) return;
+		end = day;
+		console.log('third');
+		console.log('start:',start);
+		console.log('end:',end);
+	}
+
+	markDates();
+}
+
+function markDates(){
+	for (let i = 1; i < 32; i++)
+		dateSquares[i].classList.remove('selected');
+
+	for (let i = start; i <= end; i++)
+		dateSquares[i].classList.add('selected');
+}
+
+function unmarkDates(){
+	for (let i = 1; i < 32; i++)
+		dateSquares[i].classList.remove('selected');
+
+	start = false;
+}
+
+clearSelBtn.addEventListener('click', () =>{
+	unmarkDates();
+});

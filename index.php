@@ -87,6 +87,7 @@ require '-stuff/-database/dbLoad.php';
 					Redeem Code:
 					<input type="text" name="redeem" id="redeem">
 				</div>
+				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
 				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
 			</div>
 		</div>
