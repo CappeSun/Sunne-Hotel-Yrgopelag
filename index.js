@@ -10,14 +10,12 @@ const roomPageTitle = document.getElementById('roomPageTitle');
 const roomPageDesc = document.getElementById('roomPageDesc');
 const roomPageImg = document.getElementById('roomPageImg');
 
-// const roomTitle = document.getElementById('');
-
 let isRoom = false;
 
 let jsonData;
 
 async function fetchData(){
-	let response = await fetch(`https://sputnik.zone/school/temp/akala/dbLoadRoom.php`);
+	let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/dbLoadRoom.php`);
 	jsonData = await response.json();
 } fetchData();
 
@@ -36,7 +34,7 @@ function toRoompage(id){
 		roomPageDesc.textContent = jsonData[id]['desc'];
 		roomPageImg.src = `-stuff/-images/room${id}.png`;
 
-		homePage.style.visibility = 'hidden';
+		homePage.style.display = 'none';
 
 		roomPage.classList.remove('aniRoomPage');
 	},150);
@@ -45,28 +43,30 @@ function toRoompage(id){
 function toHomepage(){
 	roomPage.classList.add('aniRoomPage');
 
-	setTimeout(() =>{
-		homePage.style.visibility = '';
+	homePage.style.display = '';
 
+	setTimeout(() =>{
 		homePage.classList.remove('aniHomePage');
 
 		isRoom = false;
 	},150);
 }
 
-// back.addEventListener('click', () =>{
-// 	toHomepage();
-// })
-
 room0.addEventListener('click', () =>{
+	clearDates();
+	loadDates(1);
 	toRoompage(0);
 });
 
 room1.addEventListener('click', () =>{
+	clearDates();
+	loadDates(2);
 	toRoompage(1);
 });
 
 room2.addEventListener('click', () =>{
+	clearDates();
+	loadDates(3);
 	toRoompage(2);
 });
 

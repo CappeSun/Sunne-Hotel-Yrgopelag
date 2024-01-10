@@ -64,8 +64,35 @@ require '-stuff/-database/dbLoad.php';
 			</div>
 			<img class="roomPageImg" id="roomPageImg" src="">
 		</div>
+		<div class="bookingCont">
+			<div class="datesCont">
+				<?php for ($i = 1; $i < 32; $i++){ ?>
+					<div class="dateSquare" id="dateSquare<?= $i; ?>">
+						<p class="dateSquareNum">
+							<?= $i; ?>
+						</p>
+					</div>
+				<?php } ?>
+			</div>
+			<div class="inputCont">
+				<div>
+					Full Name:
+					<input type="text" name="name" id="name">
+				</div>
+				<div>
+					Transfer Code:
+					<input type="text" name="code" id="code">
+				</div>
+				<div>
+					Redeem Code:
+					<input type="text" name="redeem" id="redeem">
+				</div>
+				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javascript" src="-stuff/-js/ani.js"></script>
+	<script type="text/javascript" src="-stuff/-js/booking.js"></script>
 </body>
 </html>

@@ -7,17 +7,26 @@ CREATE TABLE roomsInfo (
 
 INSERT INTO roomsInfo (name, desc, rent)
 VALUES
-('room1', 'description of room1', 800),
-('room2', 'description of room2', 2300),
+('Silver Leaf', 'description of room1', 800),
+('Shoal Suite', 'description of room2', 2300),
 ('Grand Pearl', 'description of room3', 4000);
 
 CREATE TABLE roomsBooking (
 	id INTEGER PRIMARY KEY,
 	roomId int,
-	day int,
-	customerId string,
+	start int,
+	end int,
+	extras string,
+	customerName string,
 	FOREIGN KEY(roomId) REFERENCES roomsInfo(id)
 );
+
+INSERT INTO roomsBooking (roomId, start, end, extras, customerName)
+VALUES
+(1, 1, 31, '111', 'Kukui'),
+(2, 5, 14, '101', 'Looker'),
+(2, 17, 19, '101', 'Anabel'),
+(3, 20, 20, '001', 'Lillie');
 
 INSERT INTO roomsBooking (roomId, day, customerId)
 VALUES
