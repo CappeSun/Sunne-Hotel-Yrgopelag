@@ -4,6 +4,10 @@ const bookingBtn = document.getElementById('bookingBtn');
 const name = document.getElementById('name');
 const tCode = document.getElementById('tCode');
 const redeem = document.getElementById('redeem');
+const extra1 = document.getElementById('extra1');
+const extra2 = document.getElementById('extra2');
+const extra3 = document.getElementById('extra3');
+const totalCost = document.getElementById('totalCost');
 
 let dateSquares = [];
 
@@ -42,6 +46,7 @@ dateSquares[31] = document.getElementById('dateSquare31');
 for (let i = 1; i < 32; i++){
 	dateSquares[i].addEventListener('click', () =>{
 		selectDate(i);
+		updateCost();
 	});
 }
 
@@ -49,6 +54,7 @@ let roomId;
 let start = false;
 let end;
 let extras = '000';
+let rent;
 
 async function loadDates(id){
 	let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/fetchBooking.php?id=${id}`);
@@ -112,7 +118,7 @@ function unmarkDates(){
 }
 
 function updateCost(){
-	costText.textContent = 'sum of all';
+	totalCost.textContent = `Total Cost: ${(start ? rent*(end-start+1) : 0) + (extra1.checked ? 200 : 0) + (extra2.checked ? 300 : 0) + (extra3.checked ? 600 : 0)}`;
 }
 
 async function booking(){
@@ -140,8 +146,21 @@ async function booking(){
 
 clearSelBtn.addEventListener('click', () =>{
 	unmarkDates();
+	updateCost();
 });
 
 bookingBtn.addEventListener('click', () =>{
 	booking();
+});
+
+extra1.addEventListener('change', () =>{
+	updateCost();
+});
+
+extra2.addEventListener('change', () =>{
+	updateCost();
+});
+
+extra3.addEventListener('change', () =>{
+	updateCost();
 });

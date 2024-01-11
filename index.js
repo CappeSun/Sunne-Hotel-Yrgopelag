@@ -27,12 +27,18 @@ function toRoompage(id){
 		top: 0
 	});
 
+	console.log(jsonData);
+
 	homePage.classList.add('aniHomePage');
 
+	roomPageTitle.textContent = jsonData[id]['name'];
+	roomPageDesc.textContent = jsonData[id]['desc'];
+	roomPageImg.src = `-stuff/-images/room${id}.png`;
+
+	rent = jsonData[id]['rent'];
+	updateCost();
+
 	setTimeout(() =>{
-		roomPageTitle.textContent = jsonData[id]['name'];
-		roomPageDesc.textContent = jsonData[id]['desc'];
-		roomPageImg.src = `-stuff/-images/room${id}.png`;
 
 		homePage.style.display = 'none';
 

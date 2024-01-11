@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$data = ['id' => 1, 'start' => 10, 'end' => 11, 'extras' => '000', 'name' => 'Kiawe', 'tCode' => 'f0cda91b-231c-46ab-bd8f-98a2d3f8b53c', 'redeem' => 'Nebby'];
+$data = ['id' => 2, 'start' => 1, 'end' => 31, 'extras' => '000', 'name' => 'Kiawe', 'tCode' => '39dea495-4290-44cc-9e04-f7700fbd988f', 'redeem' => 'Nebby'];
 
 if ($data['start'] > $data['end'] || $data['start'] > 31 || $data['start'] < 1 || $data['end'] > 31 || $data['end'] < 1){
 	echo json_encode(['msg' => 'Invalid range']);
@@ -17,20 +17,35 @@ $database = new PDO('sqlite:database.db');
 $statement = $database->prepare("
     SELECT start, end
     FROM roomsBooking
-    WHERE id == :id
+    WHERE roomId == :id
 ");
 
 $statement->bindParam(':id', $data['id']);
 	
 $statement->execute();
 
-$roomsBooked = $statement->fetchAll(PDO::FETCH_ASSOC);
+$bookingData = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+for ($i=1; $i < 32; $i++)
+	$roomsBooked[$i] = false;
+
+foreach ($bookingData as $booking){
+	for ($i=$booking['start']; $i < $booking['end']+1; $i++)
+		$roomsBooked[$i] = true;
+}
+
+for ($i=$data['start']; $i < $data['end']+1; $i++){
+	if ($roomsBooked[$i]){
+		echo json_encode(['msg' => 'Room already booked, try reloading']);
+		return;
+	}
+}
 
 // Check if range is vacant
 
 if ($data['redeem'] === 'Nebby')
 	$data['extras'] = '000';
-else if (!($data['redeem'] === '')){
+else if ($data['redeem'] !== ''){
 	echo json_encode(['msg' => 'Invalid redeem code']);
 	return;
 }
@@ -89,7 +104,7 @@ echo json_encode([
 	'features' => [
 		'Breakfast' => $data['extras'][0] === '1' ? 'yes' : 'no',
 		'feature2' => $data['extras'][1] === '1' ? 'yes' : 'no',
-		'feature3' => $data['extras'][2] === '1' ? 'yes' : 'no',
+		'feature3' => $data['extras'][2] === '1' ? 'yes' : 'no'
 	],
-	'additional_info' => 'Thank you for booking, we look forward to your visit',
+	'additional_info' => 'Thank you for booking, we look forward to your visit!',
 ]);

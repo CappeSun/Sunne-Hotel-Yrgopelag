@@ -87,8 +87,21 @@ require '-stuff/-database/dbLoad.php';
 					Redeem Code:
 					<input type="text" name="redeem" id="redeem">
 				</div>
+				<div>
+					Hotel Breakfast:
+					<input type="checkbox" name="extra1" id="extra1">
+				</div>
+				<div>
+					extra2:
+					<input type="checkbox" name="extra2" id="extra2">
+				</div>
+				<div>
+					extra3:
+					<input type="checkbox" name="extra3" id="extra3">
+				</div>
 				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
 				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
+				<p class="totalCost" id="totalCost">Total Cost: </p>
 			</div>
 		</div>
 	</div>
