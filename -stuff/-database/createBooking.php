@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$data = ['id' => 1, 'start' => 10, 'end' => 12, 'extras' => '100', 'name' => 'Kiawe', 'tCode' => 'test', 'redeem' => 'Nebby'];
+$data = ['id' => 1, 'start' => 10, 'end' => 11, 'extras' => '010', 'name' => 'Kiawe', 'tCode' => 'f0cda91b-231c-46ab-bd8f-98a2d3f8b53c', 'redeem' => 'Nebby'];
 
 if ($data['start'] > $data['end'] || $data['start'] > 31 || $data['start'] < 1 || $data['end'] > 31 || $data['end'] < 1){
 	echo json_encode(['msg' => 'Invalid range']);
@@ -32,8 +32,6 @@ $cost = $statement->fetchAll(PDO::FETCH_ASSOC)[0]['rent']*($data['end']-$data['s
 if ($data['redeem'] === 'Nebby')
 	$data['extras'] = '111';
 
-// echo json_encode($cost);
-
 $options = [
     'http' => [
         'header' => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -43,23 +41,24 @@ $options = [
 ];
 
 $context = stream_context_create($options);
-$result = file_get_contents('https://www.yrgopelag.se/centralbank/transferCode', false, $context);
+$result = json_decode(file_get_contents('https://www.yrgopelag.se/centralbank/transferCode', false, $context));
 
-echo $result;
-
-function bookingDb(){
-	$database = new PDO('sqlite:database.db');
-
-	$statement = $database->prepare("
-	    INSERT INTO roomsBookings (roomId, start, end, extras, customerName)
-	    VALUES (:id, :start, :end, :extras, :name)
-	");
-	
-	$statement->bindParam(':id', $data['id']);
-	$statement->bindParam(':start', $data['start']);
-	$statement->bindParam(':end', $data['end']);
-	$statement->bindParam(':extras', $data['extras']);
-	$statement->bindParam(':name', $data['name']);
-	
-	$statement->execute();
+if (!isset($result->amount)){
+	echo json_encode(['msg' => 'Invalid transferCode']);
+	return;
 }
+
+$statement = $database->prepare("
+    INSERT INTO roomsBooking (roomId, start, end, extras, customerName)
+    VALUES (:id, :start, :end, :extras, :name)
+");
+
+$statement->bindParam(':id', $data['id']);
+$statement->bindParam(':start', $data['start']);
+$statement->bindParam(':end', $data['end']);
+$statement->bindParam(':extras', $data['extras']);
+$statement->bindParam(':name', $data['name']);
+
+$statement->execute();
+
+echo json_encode(['mgg' => 'Booking successful']);
