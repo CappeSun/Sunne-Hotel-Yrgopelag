@@ -122,6 +122,12 @@ function updateCost(){
 }
 
 async function booking(){
+	extras[0] = '1';
+	extras[1] = '1';
+	extras[2] = extra3.checked ? '1' : '0';
+
+	console.log(extras);
+
 	let response = await fetch("https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/createBooking.php",
 	{
 	    method: "POST",
@@ -137,9 +143,6 @@ async function booking(){
 	});
 
 	let responseJSON = await response.json();
-
-	// let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/createBooking.php`);
-	// responseJSON = await response.json();
 
 	console.log(responseJSON);
 }

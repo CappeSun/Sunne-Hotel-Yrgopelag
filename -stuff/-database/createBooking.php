@@ -5,8 +5,6 @@ header('Access-Control-Allow-Origin: *');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$data = ['id' => 2, 'start' => 1, 'end' => 31, 'extras' => '000', 'name' => 'Kiawe', 'tCode' => '39dea495-4290-44cc-9e04-f7700fbd988f', 'redeem' => 'Nebby'];
-
 if ($data['start'] > $data['end'] || $data['start'] > 31 || $data['start'] < 1 || $data['end'] > 31 || $data['end'] < 1){
 	echo json_encode(['msg' => 'Invalid range']);
 	return;
@@ -95,6 +93,7 @@ $statement->bindParam(':name', $data['name']);
 $statement->execute();
 
 echo json_encode([
+	'msg' => 'Booking successful',
 	'island' => 'Melemele Island',
 	'hotel' => 'Hotel Sunne',
 	'arrival_date' => $data['start'].'-01-2024',
@@ -107,4 +106,5 @@ echo json_encode([
 		'feature3' => $data['extras'][2] === '1' ? 'yes' : 'no'
 	],
 	'additional_info' => 'Thank you for booking, we look forward to your visit!',
+	'message from Snubbul' => file_get_contents('https://sputnik.zone/school/temp/snubbul.php')
 ]);
