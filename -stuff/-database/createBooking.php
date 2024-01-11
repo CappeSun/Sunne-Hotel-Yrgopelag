@@ -5,24 +5,42 @@ header('Access-Control-Allow-Origin: *');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-$data = ['id' => 1, 'start' => 10, 'end' => 11, 'extras' => '010', 'name' => 'Kiawe', 'tCode' => 'f0cda91b-231c-46ab-bd8f-98a2d3f8b53c', 'redeem' => 'Nebby'];
+$data = ['id' => 1, 'start' => 10, 'end' => 11, 'extras' => '000', 'name' => 'Kiawe', 'tCode' => 'f0cda91b-231c-46ab-bd8f-98a2d3f8b53c', 'redeem' => 'Nebby'];
 
 if ($data['start'] > $data['end'] || $data['start'] > 31 || $data['start'] < 1 || $data['end'] > 31 || $data['end'] < 1){
 	echo json_encode(['msg' => 'Invalid range']);
 	return;
 }
 
+$database = new PDO('sqlite:database.db');
+
+$statement = $database->prepare("
+    SELECT start, end
+    FROM roomsBooking
+    WHERE id == :id
+");
+
+$statement->bindParam(':id', $data['id']);
+	
+$statement->execute();
+
+$roomsBooked = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// Check if range is vacant
+
 if ($data['redeem'] === 'Nebby')
 	$data['extras'] = '000';
-
-$database = new PDO('sqlite:database.db');
+else if (!($data['redeem'] === '')){
+	echo json_encode(['msg' => 'Invalid redeem code']);
+	return;
+}
 
 $statement = $database->prepare("
     SELECT rent
     FROM roomsInfo
     WHERE id == :id
 ");
-	
+
 $statement->bindParam(':id', $data['id']);
 	
 $statement->execute();
@@ -61,4 +79,17 @@ $statement->bindParam(':name', $data['name']);
 
 $statement->execute();
 
-echo json_encode(['mgg' => 'Booking successful']);
+echo json_encode([
+	'island' => 'Melemele Island',
+	'hotel' => 'Hotel Sunne',
+	'arrival_date' => $data['start'].'-01-2024',
+	'departure_date' => $data['end'].'-01-2024',
+	'total_cost' => "$cost",
+	'stars' => '5',
+	'features' => [
+		'Breakfast' => $data['extras'][0] === '1' ? 'yes' : 'no',
+		'feature2' => $data['extras'][1] === '1' ? 'yes' : 'no',
+		'feature3' => $data['extras'][2] === '1' ? 'yes' : 'no',
+	],
+	'additional_info' => 'Thank you for booking, we look forward to your visit',
+]);
