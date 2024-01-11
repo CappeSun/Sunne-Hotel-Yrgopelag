@@ -27,8 +27,6 @@ function toRoompage(id){
 		top: 0
 	});
 
-	console.log(jsonData);
-
 	homePage.classList.add('aniHomePage');
 
 	roomPageTitle.textContent = jsonData[id]['name'];

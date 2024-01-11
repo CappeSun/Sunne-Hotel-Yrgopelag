@@ -122,9 +122,7 @@ function updateCost(){
 }
 
 async function booking(){
-	extras[0] = '1';
-	extras[1] = '1';
-	extras[2] = extra3.checked ? '1' : '0';
+	extras = (extra1.checked ? '1' : '0')+(extra2.checked ? '1' : '0')+(extra3.checked ? '1' : '0');
 
 	console.log(extras);
 

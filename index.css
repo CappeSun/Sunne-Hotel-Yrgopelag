@@ -206,7 +206,26 @@ p{
 	);
 }
 
-/* ROOM PAGE */
+.footerCont{
+	height: 100%;
+	width: fit-content;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footerText{
+	height: fit-content;
+	width: fit-content;
+	margin: 1vw 3vw;
+	padding: 8px 16px;
+	border-radius: 12px;
+	background-color: white;
+	font-size: min(2.2vw, 28.8px);
+}
+
+/* ##### ROOM PAGE ################################### */
 
 .roomPage{
 	background-color: white;
@@ -328,6 +347,10 @@ p{
 		font-size: max(2vw, 18.6px);
 	}
 
+	.footerText{
+		font-size: max(2.2vw, 16px);
+	}
+
 	.roomCard{
 		width: 48.79%;
 		font-size: calc(5vw - 2px);
@@ -345,6 +368,10 @@ p{
 	}
 
 	.bookingCont{
+		flex-direction: column;
+	}
+
+	.footerCont{
 		flex-direction: column;
 	}
 }

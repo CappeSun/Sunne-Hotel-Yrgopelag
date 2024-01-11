@@ -22,18 +22,18 @@ require '-stuff/-database/dbLoad.php';
 			</div>
 			<div class="welcomeCont">
 				<img class="welcomeTitle" src="-stuff/-images/logotext.png">
-				<p class="welcomeSubtitle">texttexttextlotsoftextfortesting</p>
+				<p class="welcomeSubtitle">Vad är ett bra motto att ha här?</p>
 			</div>
 		</div>
 		<div class="mainSect">
-			<h2 class="mainTitle">Title of some purpose</h2>
+			<h2 class="mainTitle">Our purpose</h2>
 			<p class="mainText">
 				"In the heart of Hau'oli,<br>
 				there's a place...<br>
 				A place to welcome any visitor,<br>
 				a place where..."<br>
 				<br>
-				hejj
+				Sunne Hotel strives to create a welcoming atmosphere for both human and pokémon, whatever may be their origin.
 			</p>
 		</div>
 		<div class="roomSect">
@@ -52,7 +52,10 @@ require '-stuff/-database/dbLoad.php';
 			</div>
 		</div>
 		<div class="footer">
-			
+			<div class="footerCont">
+				<span class="footerText">Our warmest welcome, to Hau'oli City!</span>
+				<span class="footerText">Website by Cappe (gen 7 best gen)</span>
+			</div>
 		</div>
 	</div>
 	<div class="roomPage page aniRoomPage" id="roomPage">
