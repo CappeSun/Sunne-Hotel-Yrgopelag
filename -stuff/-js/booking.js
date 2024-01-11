@@ -1,4 +1,9 @@
 const clearSelBtn = document.getElementById('clearSelBtn');
+const bookingBtn = document.getElementById('bookingBtn');
+
+const name = document.getElementById('name');
+const tCode = document.getElementById('tCode');
+const redeem = document.getElementById('redeem');
 
 let dateSquares = [];
 
@@ -40,8 +45,10 @@ for (let i = 1; i < 32; i++){
 	});
 }
 
+let roomId;
 let start = false;
 let end;
+let extras = '000';
 
 async function loadDates(id){
 	let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/fetchBooking.php?id=${id}`);
@@ -52,6 +59,8 @@ async function loadDates(id){
 			dateSquares[i].classList.add('booked');
 		}
 	});
+
+	roomId = id;
 }
 
 function clearDates(){
@@ -102,6 +111,37 @@ function unmarkDates(){
 	start = false;
 }
 
+function updateCost(){
+	costText.textContent = 'sum of all';
+}
+
+async function booking(){
+	let response = await fetch("https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/createBooking.php",
+	{
+	    method: "POST",
+	    body: JSON.stringify({
+	    	id: roomId,
+	    	start: start,
+	    	end: end,
+	    	extras: extras,
+	    	name: name.value,
+	    	tCode: tCode.value,
+	    	redeem: redeem.value
+	    })
+	});
+
+	let responseJSON = await response.json();
+
+	// let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/createBooking.php`);
+	// responseJSON = await response.json();
+
+	console.log(responseJSON);
+}
+
 clearSelBtn.addEventListener('click', () =>{
 	unmarkDates();
+});
+
+bookingBtn.addEventListener('click', () =>{
+	booking();
 });

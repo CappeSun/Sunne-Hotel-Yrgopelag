@@ -81,7 +81,7 @@ require '-stuff/-database/dbLoad.php';
 				</div>
 				<div>
 					Transfer Code:
-					<input type="text" name="code" id="code">
+					<input type="text" name="tCode" id="tCode">
 				</div>
 				<div>
 					Redeem Code:

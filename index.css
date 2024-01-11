@@ -292,6 +292,7 @@ p{
 	background-color: white;
 	position: relative;
 	overflow: hidden;
+	cursor: default;
 }
 
 .booked{
