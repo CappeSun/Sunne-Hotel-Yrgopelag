@@ -33,7 +33,11 @@ require '-stuff/-database/dbLoad.php';
 				A place to welcome any visitor,<br>
 				a place where..."<br>
 				<br>
-				Sunne Hotel strives to create a welcoming atmosphere for both human and pokémon, whatever may be their origin.
+				Sunne Hotel strives to create a welcoming atmosphere for both human and pokémon, whatever may be their origin.<br>
+				<br>
+				Alongside rooms, we offer a number of extras. You can order breakfast to be delivered to your room, unlimited access to our regular concerts, and for the adventurous, a guided tour of Verdant Cavern.<br>
+				<br>
+				We'll be waiting for you across the waves...
 			</p>
 		</div>
 		<div class="roomSect">
@@ -67,6 +71,8 @@ require '-stuff/-database/dbLoad.php';
 			</div>
 			<img class="roomPageImg" id="roomPageImg" src="">
 		</div>
+		<h2 class="bookingTitle">Make your selection below</h2>
+		<p class="bookingSubtitle">If you manage to defeat the manager in a pokémon battle, you get all extras for free!</p>
 		<div class="bookingCont">
 			<div class="datesCont">
 				<?php for ($i = 1; $i < 32; $i++){ ?>
@@ -104,7 +110,13 @@ require '-stuff/-database/dbLoad.php';
 				</div>
 				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
 				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
-				<p class="totalCost" id="totalCost">Total Cost: </p>
+				<div class="totalCostCont">
+					<p class="totalCost" id="totalCost">Total Cost: </p>
+					<img class="roomPokedollar" src="-stuff/-images/pokedollar.svg">
+					<p class="totalCost translate">(100</p>
+					<img class="roomPokedollar" src="-stuff/-images/pokedollar.svg">
+					<p class="totalCost translate">= 1$)</p>
+				</div>
 			</div>
 		</div>
 	</div>

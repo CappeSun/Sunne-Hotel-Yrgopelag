@@ -92,6 +92,17 @@ $statement->bindParam(':name', $data['name']);
 
 $statement->execute();
 
+$options = [
+    'http' => [
+        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method' => 'POST',
+        'content' => http_build_query(['user' => 'Casper', 'transferCode' => $data['tCode']]),
+    ],
+];
+
+$context = stream_context_create($options);
+$result = json_decode(file_get_contents('https://www.yrgopelag.se/centralbank/deposit', false, $context));
+
 echo json_encode([
 	'msg' => 'Booking successful',
 	'island' => 'Melemele Island',

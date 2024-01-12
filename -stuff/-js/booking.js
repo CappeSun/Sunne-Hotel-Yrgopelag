@@ -151,6 +151,7 @@ clearSelBtn.addEventListener('click', () =>{
 });
 
 bookingBtn.addEventListener('click', () =>{
+	if (!start) return;
 	booking();
 });
 
