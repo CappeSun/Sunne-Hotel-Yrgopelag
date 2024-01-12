@@ -2,3 +2,4 @@
 Assignment to create a hotel website
 
 License: Don't care really, use it for whatever
+https://sputnik.zone/school/Sunne-Hotel/
