@@ -17,12 +17,12 @@ updateBtn.addEventListener('click', () =>{
 });
 
 async function fetchData(keyVal, room0, room1, room2){
-	response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/authUpdate.php?key=${keyVal}&room0Rent=${room0}&room1Rent=${room1}&room2Rent=${room2}`);
+	response = await fetch(`https://sputnik.zone/school/Sunne-Hotel/-stuff/-database/authUpdate.php?key=${keyVal}&room0Rent=${room0}&room1Rent=${room1}&room2Rent=${room2}`);
 	jsonData = await response.json();
 
 	updateResponse.textContent = jsonData;
 
 	setTimeout(() =>{
 		updateResponse.textContent = 'waiting for update';
-	},2000)
+	},2000);
 }

@@ -9,6 +9,11 @@ const extra2 = document.getElementById('extra2');
 const extra3 = document.getElementById('extra3');
 const totalCost = document.getElementById('totalCost');
 
+const bookingPopupCont = document.getElementById('bookingPopupCont');
+const bookingPopup = document.getElementById('bookingPopup');
+const popupText = document.getElementById('popupText');
+const popupBtn = document.getElementById('popupBtn');
+
 let dateSquares = [];
 
 dateSquares[1] = document.getElementById('dateSquare1');
@@ -57,7 +62,7 @@ let extras = '000';
 let rent;
 
 async function loadDates(id){
-	let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/fetchBooking.php?id=${id}`);
+	let response = await fetch(`https://sputnik.zone/school/Sunne-Hotel/-stuff/-database/fetchBooking.php?id=${id}`);
 	bookingJSON = await response.json();
 
 	bookingJSON.forEach((e) =>{
@@ -126,7 +131,7 @@ async function booking(){
 
 	console.log(extras);
 
-	let response = await fetch("https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/createBooking.php",
+	let response = await fetch("https://sputnik.zone/school/Sunne-Hotel/-stuff/-database/createBooking.php",
 	{
 	    method: "POST",
 	    body: JSON.stringify({
@@ -142,7 +147,20 @@ async function booking(){
 
 	let responseJSON = await response.json();
 
+	popup(responseJSON);
+
 	console.log(responseJSON);
+}
+
+
+function popup(json){
+	popupText.textContent = json.msg;
+	bookingPopupCont.classList.add('aniBookingPopupCont');
+	bookingPopupCont.style.display = 'block';
+	bookingPopup.style.animation = 'keyfBookingPopup 0.2s';
+	setTimeout(() =>{
+		popupText.classList.add('aniPopupText');
+	}, 100);
 }
 
 clearSelBtn.addEventListener('click', () =>{
@@ -165,4 +183,13 @@ extra2.addEventListener('change', () =>{
 
 extra3.addEventListener('change', () =>{
 	updateCost();
+});
+
+popupBtn.addEventListener('click', () =>{
+	bookingPopupCont.classList.remove('aniBookingPopupCont');
+	setTimeout(() =>{
+		bookingPopupCont.style.display = '';
+		bookingPopup.style.animation = '';
+		popupText.classList.remove('aniPopupText');
+	}, 500);
 });

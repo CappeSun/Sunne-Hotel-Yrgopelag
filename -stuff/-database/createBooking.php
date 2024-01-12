@@ -104,7 +104,7 @@ $context = stream_context_create($options);
 $result = json_decode(file_get_contents('https://www.yrgopelag.se/centralbank/deposit', false, $context));
 
 echo json_encode([
-	'msg' => 'Booking successful',
+	'msg' => 'Booking successful, your recipt is logged in the console',
 	'island' => 'Melemele Island',
 	'hotel' => 'Hotel Sunne',
 	'arrival_date' => $data['start'].'-01-2024',

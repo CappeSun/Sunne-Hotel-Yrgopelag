@@ -30,6 +30,6 @@
 			<p class="updateResponse" id="updateResponse">waiting for update</p>
 		</div>
 	</div>
-	<script src="-admin/index.js"></script>
+	<script src="index.js"></script>
 </body>
 </html>

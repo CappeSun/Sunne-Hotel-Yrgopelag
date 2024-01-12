@@ -120,6 +120,12 @@ require '-stuff/-database/dbLoad.php';
 			</div>
 		</div>
 	</div>
+	<div class="bookingPopupCont" id="bookingPopupCont">
+		<div class="bookingPopup" id="bookingPopup">
+			<p class="popupText" id="popupText"></p>
+			<button class="popupBtn" id="popupBtn">Close</button>
+		</div>
+	</div>
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javascript" src="-stuff/-js/ani.js"></script>
 	<script type="text/javascript" src="-stuff/-js/booking.js"></script>

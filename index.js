@@ -15,7 +15,7 @@ let isRoom = false;
 let jsonData;
 
 async function fetchData(){
-	let response = await fetch(`https://sputnik.zone/school/Akala-Yrgopelag/-stuff/-database/dbLoadRoom.php`);
+	let response = await fetch(`https://sputnik.zone/school/Sunne-Hotel/-stuff/-database/dbLoadRoom.php`);
 	jsonData = await response.json();
 } fetchData();
 

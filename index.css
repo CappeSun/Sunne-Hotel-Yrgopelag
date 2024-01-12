@@ -368,6 +368,65 @@ p{
 	margin: 30px 2px;
 }
 
+.bookingPopupCont{
+	height: 100vh;
+	width: 100vw;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: 0.2s;
+	z-index: 1;
+}
+
+.aniBookingPopupCont{
+	background-color: rgba(0, 0, 0, .2);
+	opacity: 1;
+	transition: 0.1s;
+}
+
+.bookingPopup{
+	width: 90vw;
+	max-width: 600px;
+	margin: 150px auto;
+	padding: 12px;
+	border-radius: 16px;
+	background-color: white;
+	text-align: center;
+}
+
+.popupText{
+	opacity: 0;
+}
+
+.aniPopupText{
+	opacity: 1;
+}
+
+.popupBtn{
+	padding: 0px 12px;
+	color: var(--text);
+	background-color: white;
+	border-style: solid;
+	border-width: 1.5px;
+	border-radius: 18px;
+	border-color: black;
+	font-size: min(2.8vw, 16px);
+	font-family: "RodinNTLG Pro";
+	font-weight: 200;
+	transition: 0.5s;
+}
+
+@keyframes keyfBookingPopup{
+	0%{
+		width: 20px;
+	}
+	100%{
+		width: 90vw;
+	}
+}
+
 @media (max-width: 1000px){
 	h2{
 		font-size: max(3vw, 28px);
