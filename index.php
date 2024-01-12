@@ -22,7 +22,7 @@ require '-stuff/-database/dbLoad.php';
 			</div>
 			<div class="welcomeCont">
 				<img class="welcomeTitle" src="-stuff/-images/logotext.png">
-				<p class="welcomeSubtitle">Vad är ett bra motto att ha här?</p>
+				<p class="welcomeSubtitle">Where the sun resides</p>
 			</div>
 		</div>
 		<div class="mainSect">
@@ -33,7 +33,7 @@ require '-stuff/-database/dbLoad.php';
 				A place to welcome any visitor,<br>
 				a place where..."<br>
 				<br>
-				Sunne Hotel strives to create a welcoming atmosphere for both human and pokémon, whatever may be their origin.<br>
+				Sunne Hotel strives to create a welcoming atmosphere for both human and pokémon, whatever may be their origin. With our five stars, like the five islands of Alola, we are confident you'll enjoy your time here.<br>
 				<br>
 				Alongside rooms, we offer a number of extras. You can order breakfast to be delivered to your room, unlimited access to our regular concerts, and for the adventurous, a guided tour of Verdant Cavern.<br>
 				<br>
@@ -101,11 +101,11 @@ require '-stuff/-database/dbLoad.php';
 					<input type="checkbox" name="extra1" id="extra1">
 				</div>
 				<div>
-					extra2:
+					Concerts:
 					<input type="checkbox" name="extra2" id="extra2">
 				</div>
 				<div>
-					extra3:
+					Guided tour:
 					<input type="checkbox" name="extra3" id="extra3">
 				</div>
 				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
