@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $database = new PDO('sqlite:-stuff/-database/database.db');
 
 $fetchData = $database->query("

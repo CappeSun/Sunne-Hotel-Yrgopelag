@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
 

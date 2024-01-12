@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin: *');
 
@@ -113,8 +115,8 @@ echo json_encode([
 	'stars' => '5',
 	'features' => [
 		'Breakfast' => $data['extras'][0] === '1' ? 'yes' : 'no',
-		'feature2' => $data['extras'][1] === '1' ? 'yes' : 'no',
-		'feature3' => $data['extras'][2] === '1' ? 'yes' : 'no'
+		'Concerts' => $data['extras'][1] === '1' ? 'yes' : 'no',
+		'Tour' => $data['extras'][2] === '1' ? 'yes' : 'no'
 	],
 	'additional_info' => 'Thank you for booking, we look forward to your visit!',
 	'message from Snubbul' => file_get_contents('https://sputnik.zone/school/temp/snubbul.php')
