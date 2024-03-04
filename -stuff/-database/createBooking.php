@@ -108,7 +108,7 @@ $result = json_decode(file_get_contents('https://www.yrgopelag.se/centralbank/de
 echo json_encode([
 	'msg' => 'Booking successful, your recipt is logged in the console',
 	'island' => 'Melemele Island',
-	'hotel' => 'Hotel Sunne',
+	'hotel' => 'Sunne Hotel',
 	'arrival_date' => $data['start'].'-01-2024',
 	'departure_date' => $data['end'].'-01-2024',
 	'total_cost' => "$cost",
