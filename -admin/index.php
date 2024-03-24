@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="https://sputnik.zone/-stuff/-fonts/fonts.css">
 </head>
 <body>
+	<img src="../-stuff/-images/sussybaka.webp" class="sus" id="sus">
 	<div class="inputCont">
 		<div class="rentCont">
 			<div>
@@ -30,6 +31,6 @@
 			<p class="updateResponse" id="updateResponse">waiting for update</p>
 		</div>
 	</div>
-	<script src="index.js"></script>
 </body>
+<script src="index.js"></script>
 </html>

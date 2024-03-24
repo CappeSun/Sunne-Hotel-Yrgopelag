@@ -72,7 +72,7 @@ require '-stuff/-database/dbLoad.php';
 			<img class="roomPageImg" id="roomPageImg" src="">
 		</div>
 		<h2 class="bookingTitle">Make your selection below</h2>
-		<p class="bookingSubtitle">If you manage to defeat the manager in a pokémon battle, you get all extras for free!</p>
+		<p class="bookingSubtitle">If you defeat the manager in a pokémon battle, you get all extras for free!</p>
 		<div class="bookingCont">
 			<div class="datesCont">
 				<?php for ($i = 1; $i < 32; $i++){ ?>
@@ -98,15 +98,15 @@ require '-stuff/-database/dbLoad.php';
 				</div>
 				<div>
 					Hotel Breakfast:
-					<input type="checkbox" name="extra1" id="extra1">
+					<input type="checkbox" name="extraBreakfast" id="extraBreakfast">
 				</div>
 				<div>
 					Concerts:
-					<input type="checkbox" name="extra2" id="extra2">
+					<input type="checkbox" name="extraConcerts" id="extraConcerts">
 				</div>
 				<div>
 					Guided tour:
-					<input type="checkbox" name="extra3" id="extra3">
+					<input type="checkbox" name="extraTour" id="extraTour">
 				</div>
 				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
 				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>

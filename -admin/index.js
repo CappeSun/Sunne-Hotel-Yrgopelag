@@ -22,6 +22,17 @@ async function fetchData(keyVal, room0, room1, room2){
 
 	updateResponse.textContent = jsonData;
 
+	if (jsonData == 'invalid key'){
+		sus.style.display = 'block';
+		sus.classList.add('aniSus');
+		setTimeout(() =>{
+			sus.classList.remove('aniSus');
+		},100);
+		setTimeout(() =>{
+			sus.style.display = 'none';
+		},900);
+	}
+
 	setTimeout(() =>{
 		updateResponse.textContent = 'waiting for update';
 	},2000);

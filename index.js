@@ -1,9 +1,11 @@
 const homePage = document.getElementById('homePage');
 const roomPage = document.getElementById('roomPage');
 
-const room0 = document.getElementById('room0');
-const room1 = document.getElementById('room1');
-const room2 = document.getElementById('room2');
+const rooms = [
+	document.getElementById('room0'),
+	document.getElementById('room1'),
+	document.getElementById('room2')
+];
 const backBtn = document.getElementById('backBtn');
 
 const roomPageTitle = document.getElementById('roomPageTitle');
@@ -56,26 +58,14 @@ function toHomepage(){
 	},150);
 }
 
-room0.addEventListener('click', () =>{
-	unmarkDates();
-	clearDates();
-	loadDates(1);
-	toRoompage(0);
-});
-
-room1.addEventListener('click', () =>{
-	unmarkDates();
-	clearDates();
-	loadDates(2);
-	toRoompage(1);
-});
-
-room2.addEventListener('click', () =>{
-	unmarkDates();
-	clearDates();
-	loadDates(3);
-	toRoompage(2);
-});
+for (let i = 0; i < rooms.length; i++){
+	rooms[i].addEventListener('click', () =>{
+		unmarkDates();
+		clearDates();
+		loadDates(i+1);
+		toRoompage(i);
+	});
+}
 
 backBtn.addEventListener('click', () =>{
 	toHomepage();

@@ -4,9 +4,9 @@ const bookingBtn = document.getElementById('bookingBtn');
 const name = document.getElementById('name');
 const tCode = document.getElementById('tCode');
 const redeem = document.getElementById('redeem');
-const extra1 = document.getElementById('extra1');
-const extra2 = document.getElementById('extra2');
-const extra3 = document.getElementById('extra3');
+const extraBreakfast = document.getElementById('extraBreakfast');
+const extraConcerts = document.getElementById('extraConcerts');
+const extraTour = document.getElementById('extraTour');
 const totalCost = document.getElementById('totalCost');
 
 const bookingPopupCont = document.getElementById('bookingPopupCont');
@@ -16,37 +16,8 @@ const popupBtn = document.getElementById('popupBtn');
 
 let dateSquares = [];
 
-dateSquares[1] = document.getElementById('dateSquare1');
-dateSquares[2] = document.getElementById('dateSquare2');
-dateSquares[3] = document.getElementById('dateSquare3');
-dateSquares[4] = document.getElementById('dateSquare4');
-dateSquares[5] = document.getElementById('dateSquare5');
-dateSquares[6] = document.getElementById('dateSquare6');
-dateSquares[7] = document.getElementById('dateSquare7');
-dateSquares[8] = document.getElementById('dateSquare8');
-dateSquares[9] = document.getElementById('dateSquare9');
-dateSquares[10] = document.getElementById('dateSquare10');
-dateSquares[11] = document.getElementById('dateSquare11');
-dateSquares[12] = document.getElementById('dateSquare12');
-dateSquares[13] = document.getElementById('dateSquare13');
-dateSquares[14] = document.getElementById('dateSquare14');
-dateSquares[15] = document.getElementById('dateSquare15');
-dateSquares[16] = document.getElementById('dateSquare16');
-dateSquares[17] = document.getElementById('dateSquare17');
-dateSquares[18] = document.getElementById('dateSquare18');
-dateSquares[19] = document.getElementById('dateSquare19');
-dateSquares[20] = document.getElementById('dateSquare20');
-dateSquares[21] = document.getElementById('dateSquare21');
-dateSquares[22] = document.getElementById('dateSquare22');
-dateSquares[23] = document.getElementById('dateSquare23');
-dateSquares[24] = document.getElementById('dateSquare24');
-dateSquares[25] = document.getElementById('dateSquare25');
-dateSquares[26] = document.getElementById('dateSquare26');
-dateSquares[27] = document.getElementById('dateSquare27');
-dateSquares[28] = document.getElementById('dateSquare28');
-dateSquares[29] = document.getElementById('dateSquare29');
-dateSquares[30] = document.getElementById('dateSquare30');
-dateSquares[31] = document.getElementById('dateSquare31');
+for (let i = 1; i < 32; i++)
+	dateSquares[i] = document.getElementById(`dateSquare${i}`);
 
 for (let i = 1; i < 32; i++){
 	dateSquares[i].addEventListener('click', () =>{
@@ -85,23 +56,14 @@ function selectDate(day){
 	if (!start){
 		start = day;
 		end = day;
-		console.log('first');
-		console.log('start:',start);
-		console.log('end:',end);
 	}else if (day < start){
 		for (let i = day; i < end; i++)
 			if (dateSquares[i].classList.contains('booked')) return;
 		start = day;
-		console.log('second');
-		console.log('start:',start);
-		console.log('end:',end);
 	}else{
 		for (let i = start; i < day; i++)
 			if (dateSquares[i].classList.contains('booked')) return;
 		end = day;
-		console.log('third');
-		console.log('start:',start);
-		console.log('end:',end);
 	}
 
 	markDates();
@@ -123,11 +85,11 @@ function unmarkDates(){
 }
 
 function updateCost(){
-	totalCost.textContent = `Total Cost: ${(start ? rent*(end-start+1) : 0) + (extra1.checked ? 200 : 0) + (extra2.checked ? 300 : 0) + (extra3.checked ? 600 : 0)}`;
+	totalCost.textContent = `Total Cost: ${(start ? rent*(end-start+1) : 0) + (extraBreakfast.checked ? 200 : 0) + (extraConcerts.checked ? 300 : 0) + (extraTour.checked ? 600 : 0)}`;
 }
 
 async function booking(){
-	extras = (extra1.checked ? '1' : '0')+(extra2.checked ? '1' : '0')+(extra3.checked ? '1' : '0');
+	extras = (extraBreakfast.checked ? '1' : '0')+(extraConcerts.checked ? '1' : '0')+(extraTour.checked ? '1' : '0');
 
 	console.log(extras);
 
@@ -173,15 +135,15 @@ bookingBtn.addEventListener('click', () =>{
 	booking();
 });
 
-extra1.addEventListener('change', () =>{
+extraBreakfast.addEventListener('change', () =>{
 	updateCost();
 });
 
-extra2.addEventListener('change', () =>{
+extraConcerts.addEventListener('change', () =>{
 	updateCost();
 });
 
-extra3.addEventListener('change', () =>{
+extraTour.addEventListener('change', () =>{
 	updateCost();
 });
 

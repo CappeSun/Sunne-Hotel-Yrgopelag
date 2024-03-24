@@ -1,0 +1,47 @@
+{
+    "island": "Crab Key",
+    "hotel": "Dr.No Hotel",
+    "arrival_date": "2024-01-23",
+    "departure_date": "2024-01-24",
+    "total_cost": "42",
+    "stars": "2",
+    "features": {
+        "name": "A hotel towel",
+        "cost": "Free"
+    },
+    "addtional_info": "Thank you for staying at the Dr.No Hotel."
+}
+
+{
+    "island": "Crab Key",
+    "hotel": "Dr.No Hotel",
+    "arrival_date": "2024-01-23",
+    "departure_date": "2024-01-24",
+    "total_cost": "12",
+    "stars": "2",
+    "features": {
+        "name": "A hotel towel",
+        "cost": "Free"
+    },
+    "addtional_info": "Thank you for staying at the Dr.No Hotel."
+}
+
+{
+    "island": "Crab Key",
+    "hotel": "Dr.No Hotel",
+    "arrival_date": "2024-01-18",
+    "departure_date": "2024-01-19",
+    "total_cost": "10",
+    "stars": "2",
+    "features": {
+        "name": "A hotel towel",
+        "cost": "Free"
+    },
+    "addtional_info": "Thank you for staying at the Dr.No Hotel."
+}
+
+hotels:6
+stars:6
+features:1
+days:2
+total:15
