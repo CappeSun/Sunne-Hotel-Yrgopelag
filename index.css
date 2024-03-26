@@ -363,9 +363,8 @@ p{
 	margin-left: 8px;
 }
 
-.roomPokedollar{
-	height: min(2vw, 22px);
-	margin: 30px 2px;
+.pokedollarChar{
+	font-family: "Pokedollar";
 }
 
 .bookingPopupCont{
@@ -474,7 +473,7 @@ p{
     font-family: "RodinNTLG Pro";
     src:
         local("FOT-RodinNTLG Pro M"),
-        url("/-stuff/-fonts/FOT-RodinNTLG Pro M.otf");
+        url("-stuff/-fonts/FOT-RodinNTLG Pro M.otf");
     font-weight: 200;
 }
 
@@ -482,7 +481,7 @@ p{
     font-family: "RodinNTLG Pro";
     src:
         local("FOT-RodinNTLG Pro B"),
-        url("/-stuff/-fonts/FOT-RodinNTLG Pro B.otf");
+        url("-stuff/-fonts/FOT-RodinNTLG Pro B.otf");
     font-weight: 500;
 }
 
@@ -490,7 +489,7 @@ p{
     font-family: "RodinNTLG Pro";
     src:
         local("FOT-RodinNTLG Pro EB"),
-        url("/-stuff/-fonts/FOT-RodinNTLG Pro EB.otf");
+        url("-stuff/-fonts/FOT-RodinNTLG Pro EB.otf");
     font-weight: 900;
 }
 
@@ -498,6 +497,13 @@ p{
     font-family: "Sun-Moon";
     src:
         local("Sun-Moon"),
-        url("/-stuff/-fonts/Sun-Moon.ttf");
+        url("-stuff/-fonts/Sun-Moon.ttf");
+    font-weight: 900;
+}
+
+@font-face{
+    font-family: "Pokedollar";
+    src:
+        url("-stuff/-fonts/pokedollar.ttf");
     font-weight: 900;
 }

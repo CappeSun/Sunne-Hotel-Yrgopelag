@@ -85,7 +85,7 @@ function unmarkDates(){
 }
 
 function updateCost(){
-	totalCost.textContent = `Total Cost: ${(start ? rent*(end-start+1) : 0) + (extraBreakfast.checked ? 200 : 0) + (extraConcerts.checked ? 300 : 0) + (extraTour.checked ? 600 : 0)}`;
+	totalCost.textContent = (start ? rent*(end-start+1) : 0) + (extraBreakfast.checked ? 200 : 0) + (extraConcerts.checked ? 300 : 0) + (extraTour.checked ? 600 : 0);
 }
 
 async function booking(){

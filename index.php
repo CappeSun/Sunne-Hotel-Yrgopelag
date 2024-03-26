@@ -111,11 +111,9 @@ require '-stuff/-database/dbLoad.php';
 				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
 				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
 				<div class="totalCostCont">
-					<p class="totalCost" id="totalCost">Total Cost: </p>
-					<img class="roomPokedollar" src="-stuff/-images/pokedollar.svg">
-					<p class="totalCost translate">(100</p>
-					<img class="roomPokedollar" src="-stuff/-images/pokedollar.svg">
-					<p class="totalCost translate">= 1$)</p>
+					<p class="totalCost">
+						Total Cost: <span id="totalCost"></span><span class="pokedollarChar">$</span>
+						(100<span class="pokedollarChar">$</span> = 1$)</p>
 				</div>
 			</div>
 		</div>
