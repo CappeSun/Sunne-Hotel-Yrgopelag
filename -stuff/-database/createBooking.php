@@ -5,6 +5,9 @@ declare(strict_types=1);
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin: *');
 
+echo json_encode(['msg' => 'Currently Disabled']);
+return;
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($data['start'] > $data['end'] || $data['start'] > 31 || $data['start'] < 1 || $data['end'] > 31 || $data['end'] < 1){
@@ -40,8 +43,6 @@ for ($i=$data['start']; $i < $data['end']+1; $i++){
 		return;
 	}
 }
-
-// Check if range is vacant
 
 if ($data['redeem'] === 'Nebby')
 	$data['extras'] = '000';
@@ -106,7 +107,7 @@ $context = stream_context_create($options);
 $result = json_decode(file_get_contents('https://www.yrgopelag.se/centralbank/deposit', false, $context));
 
 echo json_encode([
-	'msg' => 'Booking successful, your recipt is logged in the console',
+	'msg' => 'Booking successful, your receipt is logged in the console',
 	'island' => 'Melemele Island',
 	'hotel' => 'Sunne Hotel',
 	'arrival_date' => $data['start'].'-01-2024',

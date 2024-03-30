@@ -91,8 +91,6 @@ function updateCost(){
 async function booking(){
 	extras = (extraBreakfast.checked ? '1' : '0')+(extraConcerts.checked ? '1' : '0')+(extraTour.checked ? '1' : '0');
 
-	console.log(extras);
-
 	let response = await fetch("https://sputnik.zone/school/Sunne-Hotel/-stuff/-database/createBooking.php",
 	{
 	    method: "POST",
@@ -106,6 +104,8 @@ async function booking(){
 	    	redeem: redeem.value
 	    })
 	});
+
+	console.log(response);
 
 	let responseJSON = await response.json();
 
