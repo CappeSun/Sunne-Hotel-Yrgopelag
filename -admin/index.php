@@ -1,3 +1,9 @@
+<?php
+
+require '../-stuff/-database/getRoomCount.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +17,7 @@
 	<img src="../-stuff/-images/sussybaka.webp" class="sus" id="sus">
 	<div class="inputCont">
 		<div class="rentCont">
-			<?php for ($i=0; $i < 3; $i++){ ?>
+			<?php for ($i=0; $i < getRoomCount(); $i++){ ?>
 				<div>
 					Room<?= $i+1; ?> Rent:
 					<input type="text" name="room<?= $i; ?>Rent" id="room<?= $i; ?>Rent">

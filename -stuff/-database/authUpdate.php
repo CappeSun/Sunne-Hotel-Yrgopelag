@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 require '../../loadEnv.php';
+require 'getRoomCount.php';
 
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
@@ -10,12 +11,10 @@ header("Access-Control-Allow-Origin: *");
 if (!isset($_GET['key']) || $_GET['key'] !== getenv('API_KEY'))
 	echo json_encode('invalid key');
 else{
-	if (isset($_GET['room0Rent']) && $_GET['room0Rent'] != '')
-		updateDb($_GET['room0Rent'], 1);
-	if (isset($_GET['room1Rent']) && $_GET['room1Rent'] != '')
-		updateDb($_GET['room1Rent'], 2);
-	if (isset($_GET['room2Rent']) && $_GET['room2Rent'] != '')
-		updateDb($_GET['room2Rent'], 3);
+	for ($i=0; $i < getRoomCount(); $i++){ 
+		if (isset($_GET['room'.$i.'Rent']) && $_GET['room'.$i.'Rent'] != '')
+			updateDb($_GET['room0Rent'], 1);
+	}
 	echo json_encode('update complete');
 }
 
