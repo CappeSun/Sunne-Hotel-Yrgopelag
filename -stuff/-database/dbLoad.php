@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$database = new PDO('sqlite:-stuff/-database/database.db');
+$database = new PDO('sqlite:'.__DIR__.'/database.db');
 
 $fetchData = $database->query("
 	SELECT *
