@@ -5,7 +5,7 @@ https://sputnik.zone/school/Sunne-Hotel/
 
 The database used contains two tables, one for room data and one for bookings. The data table stores names, descriptions, rent, etc. of the three rooms. The booking table stores room id, start and end date, name of customer, etc. as rows, also used by the website to display already booked dates.
 
-(dashes denote directories not meant to be accessed by users)
+(hyphens denote directories not meant to be accessed by users)
 
 # Code review
 First of all: Great job completing this assignment! It was fun to review your code, and I have learned alot since we have done things completely different. I am definetely taking some of your methods with me in the future.
