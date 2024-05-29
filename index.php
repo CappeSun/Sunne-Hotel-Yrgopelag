@@ -108,8 +108,10 @@ require '-stuff/-database/dbLoad.php';
 					Guided tour:
 					<input type="checkbox" name="extraTour" id="extraTour">
 				</div>
-				<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
-				<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
+				<div class="inputBtnCont">
+					<button class="clearSelBtn" id="clearSelBtn">Clear Selection</button>
+					<button class="bookingBtn" id="bookingBtn">Complete Booking</button>
+				</div>
 				<div class="totalCostCont">
 					<p class="totalCost">
 						Total Cost: <span id="totalCost"></span><span class="pokedollarChar">$</span>
