@@ -20,12 +20,12 @@ require '../-stuff/-database/getRoomCount.php';
 			<?php for ($i=0; $i < getRoomCount(); $i++){ ?>
 				<div>
 					Room<?= $i+1; ?> Rent:
-					<input type="text" name="room<?= $i; ?>Rent" id="room<?= $i; ?>Rent">
+					<input type="text" id="room<?= $i; ?>Rent">
 				</div>
 			<?php } ?>
 			<div>
 				Key: 
-				<input type="password" name="key" id="key" placeholder="key">
+				<input type="password" id="key">
 			</div>
 			<button class="updateBtn" id="updateBtn">Update</button>
 			<p class="updateResponse" id="updateResponse">waiting for update</p>
