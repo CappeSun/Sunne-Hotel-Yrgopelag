@@ -43,7 +43,7 @@ require '-stuff/-database/dbLoad.php';
 		<div class="roomSect">
 			<h2 class="roomTitle">Below is our selection of rooms</h2>
 			<div class="roomCardCont">
-				<?php for ($i=0; $i < 3; $i++){ ?>
+				<?php for ($i=0; $i < count($fetchData); $i++){ ?>
 					<div class="roomCard" id="room<?= $i; ?>">
 						<img class="cardBox" src="-stuff/-images/card.png">
 						<img class="roomImg" src="-stuff/-images/room<?= $i; ?>.png">

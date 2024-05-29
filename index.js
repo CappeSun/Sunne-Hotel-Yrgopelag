@@ -1,11 +1,8 @@
 const homePage = document.getElementById('homePage');
 const roomPage = document.getElementById('roomPage');
 
-const rooms = [
-	document.getElementById('room0'),
-	document.getElementById('room1'),
-	document.getElementById('room2')
-];
+const rooms = document.getElementsByClassName('roomCard');
+
 const backBtn = document.getElementById('backBtn');
 
 const roomPageTitle = document.getElementById('roomPageTitle');
