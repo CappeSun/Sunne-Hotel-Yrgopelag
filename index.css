@@ -348,6 +348,39 @@ p{
 
 .inputCont{
 	margin: 0vw 0vw 0vw 3vw;
+	padding: 10px;
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, .3);
+	border-radius: max(1.5vw, 15px);
+}
+
+.inputBtnCont{
+	font-size: 0;
+}
+
+.clearSelBtn, .bookingBtn{
+	margin: 10px 0px;
+	padding: max(0.5vw, 6px) max(1.25vw, 15px);
+	border-radius: 0 0 max(1.5vw, 15px) max(1.5vw, 15px);
+	color: black;
+	font-size: max(1.25vw, 15px);
+	font-weight: 500;
+	text-decoration: none;
+	background-color: white;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.clearSelBtn{
+	border-radius: max(1.5vw, 15px) 0 0 max(1.5vw, 15px);
+}
+
+.bookingBtn{
+	border-radius: 0 max(1.5vw, 15px) max(1.5vw, 15px) 0;
+}
+
+.clearSelBtn:hover, .bookingBtn:hover{
+	color: #FF9711;
+	transition: 0.2s;
 }
 
 .totalCostCont{
