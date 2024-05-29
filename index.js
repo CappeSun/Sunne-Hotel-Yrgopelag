@@ -39,7 +39,6 @@ function toRoompage(id){
 	updateCost();
 
 	setTimeout(() =>{
-
 		homePage.style.display = 'none';
 
 		roomPage.classList.remove('aniRoomPage');
