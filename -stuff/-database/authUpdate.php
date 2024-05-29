@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
+require '../../loadEnv.php';
+
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
 
-if (!isset($_GET['key']) || $_GET['key'] !== $_ENV['API_KEY'])
+if (!isset($_GET['key']) || $_GET['key'] !== getenv('API_KEY'))
 	echo json_encode('invalid key');
 else{
 	if (isset($_GET['room0Rent']) && $_GET['room0Rent'] != '')
