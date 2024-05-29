@@ -11,18 +11,12 @@
 	<img src="../-stuff/-images/sussybaka.webp" class="sus" id="sus">
 	<div class="inputCont">
 		<div class="rentCont">
-			<div>
-				Room1 Rent:
-				<input type="text" name="room0Rent" id="room0Rent">
-			</div>
-			<div>
-				Room2 Rent:
-				<input type="text" name="room1Rent" id="room1Rent">
-			</div>
-			<div>
-				Room3 Rent:
-				<input type="text" name="room2Rent" id="room2Rent">
-			</div>
+			<?php for ($i=0; $i < 3; $i++){ ?>
+				<div>
+					Room<?= $i+1; ?> Rent:
+					<input type="text" name="room<?= $i; ?>Rent" id="room<?= $i; ?>Rent">
+				</div>
+			<?php } ?>
 			<div>
 				Key: 
 				<input type="password" name="key" id="key" placeholder="key">
